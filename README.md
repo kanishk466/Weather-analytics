@@ -3,19 +3,6 @@
 
 A REST API built with **NestJS**, **TypeScript**, **Prisma ORM**, and **PostgreSQL** that fetches weather data from a third-party weather service, stores it in a database, and provides aggregated weather analytics for multiple cities.
 
----
-
-## Tech Stack
-
-- NestJS
-- TypeScript
-- PostgreSQL
-- Prisma ORM (v5)
-- Axios (NestJS HttpModule)
-- OpenWeather API
-- class-validator
-
----
 
 ## Features
 
@@ -23,11 +10,6 @@ A REST API built with **NestJS**, **TypeScript**, **Prisma ORM**, and **PostgreS
 - Store city information in PostgreSQL
 - Store current weather history
 - Store 5-day forecast
-- Calculate:
-  - Average Temperature
-  - Highest Temperature
-  - Lowest Temperature
-  - Hot Cities (Temperature > 35°C)
 - Get weather analytics for a single city
 
 ---
@@ -41,13 +23,13 @@ git clone <repository-url>
 cd weather-analytics
 ```
 
-### 2. Install Dependencies
+### 2. Install 
 
 ```bash
 npm install
 ```
 
-### 3. Configure Environment Variables
+### 3.Environment Variables
 
 Create a `.env` file.
 
