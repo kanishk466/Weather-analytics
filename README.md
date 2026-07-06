@@ -128,15 +128,7 @@ GET /analytics/city/Tokyo
 ---
 
 
----
 
-# Run 
-
-```bash
-npm run start:dev
-```
-
----
 
 
 
