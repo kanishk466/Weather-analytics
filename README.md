@@ -1,4 +1,4 @@
-````md
+
 # Weather Analytics API
 
 A REST API built with **NestJS**, **TypeScript**, **Prisma ORM**, and **PostgreSQL** that fetches weather data from a third-party weather service, stores it in a database, and provides aggregated weather analytics for multiple cities.
