@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model City {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  latitude  Float
+  longitude Float
+  country   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  weatherData WeatherData[]
+  forecast    Forecast[]
+
+  @@index([name])
+}
+
+
+model WeatherData {
+  id          String   @id @default(cuid())
+  cityId      String
+  city        City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  
+  temperature Float    
+  feelsLike   Float
+  humidity    Int      
+  pressure    Int      
+  description String   
+  icon        String   
+  windSpeed   Float    
+  
+ 
+  fetchedAt   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+
+  @@index([cityId])
+  @@index([fetchedAt])
+  @@unique([cityId, fetchedAt])
+}
+
+model Forecast {
+  id        String   @id @default(cuid())
+  cityId    String
+  city      City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  
+  forecastDate DateTime 
+  minTemp      Float    
+  maxTemp      Float    
+  avgTemp      Float    
+  description  String   
+  humidity     Int
+  pressure     Int
+  windSpeed    Float
+  rainChance   Int     
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([cityId])
+  @@index([forecastDate])
+  @@unique([cityId, forecastDate])
+}
+
+
+model AnalyticsCache {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  data      Json    
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([expiresAt])
+}
