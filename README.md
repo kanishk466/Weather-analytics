@@ -1,27 +1,12 @@
 
 # Weather Analytics API
 
-A REST API built with **NestJS**, **TypeScript**, **Prisma ORM**, and **PostgreSQL** that fetches weather data from a third-party weather service, stores it in a database, and provides aggregated weather analytics for multiple cities.
+Create an API that fetches the current temperature and forecast for a list of cities
+from a third-party weather API. It should also perform logic/aggregation such as
+average temperature of all cities, highest and lowest temperature, and identifying
+cities where temperature exceeds a given threshold. Uses database
+(MySQL/Postgres). Caching can be used (optional).
 
-
-## Features
-
-- Fetch current weather for multiple cities
-- Store city information in PostgreSQL
-- Store current weather history
-- Store 5-day forecast
-- Get weather analytics for a single city
-
----
-
-## Project Setup
-
-### 1. Clone Repository
-
-```bash
-git clone <repository-url>
-cd weather-analytics
-```
 
 ### 2. Install 
 
@@ -75,7 +60,6 @@ http://localhost:3000
 
 # API Endpoints
 
-## 1. Get Weather Analytics for Multiple Cities
 
 ### POST
 
@@ -116,7 +100,6 @@ http://localhost:3000
 
 ---
 
-## 2. Get Analytics for Single City
 
 ### GET
 
@@ -144,22 +127,10 @@ GET /analytics/city/Tokyo
 
 ---
 
-# Database Tables
-
-- City
-- WeatherData
-- Forecast
-- AnalyticsCache
 
 ---
 
-# Validation
-
-Request validation is implemented using NestJS `ValidationPipe` and `class-validator`.
-
----
-
-# Run in Development
+# Run 
 
 ```bash
 npm run start:dev
@@ -167,15 +138,6 @@ npm run start:dev
 
 ---
 
-# Build
 
-```bash
-npm run build
-```
 
----
 
-# Author
-
-Kanishk Singh Maurya
-````
